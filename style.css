@@ -1,0 +1,53 @@
+:root {
+    --theme-color: #652885;
+    --font-color: #fae9f8;
+    --shade1: rgba(242, 38, 19, 0.5);
+    --shade2: rgba(0, 255, 255, 0.5);
+    --theme-font: 'VT323', monospace;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent body scrolling */
+    background: var(--theme-color);
+}
+
+/* Fixed background image */
+.background {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    width: 300px; /* Adjust the width of the background image */
+    height: 200px; /* Adjust the height of the background image */
+    background-color: rgb(30, 0, 27); /* Fallback background color */
+    background-image: url("3rd__monthsary__pic.png");
+    background-size: cover; /* Ensure the image covers the background area */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center; /* Center the background image */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+/* Container for scrollable content */
+.textCont {
+    font-size: 150%;
+    margin-left: 1rem;
+    width: 60%;
+    height: 80%;
+    font-family: var(--theme-font);
+    color: var(--font-color);
+    padding-top: 220px; /* Provide space for the fixed background image */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.textCont::after {
+    content: "|";
+    animation: blinky 1s linear infinite;
+}
+
+@keyframes blinky {
+    0% { opacity: 0; }
+    49.9% { opacity: 0; }
+    50% { opacity: 1; }
+    99.9% { opacity: 1; }
+}
